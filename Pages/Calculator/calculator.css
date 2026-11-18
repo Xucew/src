@@ -1,0 +1,7 @@
+.Taschenrechner {
+  display: flex;
+  direction: column; 
+  height: 100vh;
+  background: 30px;
+  background-color: #f5f5f5;
+}

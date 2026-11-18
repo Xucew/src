@@ -1,0 +1,287 @@
+/* Цвета сайта: меняйте значения только здесь */
+:root {
+  --main: #34495e;      /* шапка, подвал */
+  --accent: #5b8db8;    /* линии под заголовками */
+  --bg: #f7f9fb;        /* фон страницы */
+  --text: #2d3436;      /* основной текст */
+  --muted: #dfe6e9;     /* текст в подвале */
+}
+
+/* Общие настройки для всей страницы */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* чтобы футер был внизу даже при малом количестве текста */
+}
+
+.hero {
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    url("../Assets/photo.png") center / cover no-repeat,
+    var(--main);
+}
+.hero-title {
+  margin: 0;
+  color: white;
+  font-size: 48px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ОСНОВНОЕ СОДЕРЖИМОЕ */
+main {
+  flex: 1; /* занимает всё свободное место внутри обёртки */
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* две колонки одинаковой ширины */
+  gap: 20px;  /* одинаковый отступ между секциями */
+  align-items: start;  /* блоки не растягиваются по высоте соседа */
+}
+
+#about {
+  grid-column: 1 / -1; 
+  border-left: 5px solid var(--accent);
+}
+#about p {
+  max-width: 75ch;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06); 
+}
+section h2 {
+  margin-top: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--main);
+  font-size: 20px;
+}
+section li {
+  margin-bottom: 6px;
+}
+/* Иконки технологий */
+.ico {
+  width: 20px;
+  height: 20px;
+  vertical-align: -4px;
+  margin-right: 6px;
+}
+.tech {
+  display: inline-flex;
+  align-items: center;
+}
+
+.skills-tiles {
+  background: linear-gradient(135deg, #ffffff, var(--bg));
+  border-left: 4px solid var(--accent);
+}
+.skills-tiles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.skills-tiles li {
+  margin: 0;
+  padding: 10px 12px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 700px) {
+  .skills-tiles ul { grid-template-columns: 1fr; }
+}
+
+.projects {
+  background: linear-gradient(135deg, #ffffff, var(--bg));
+  border-top: 4px solid var(--accent);
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.project-card {
+  background: white;
+  border: 1px solid #e3eaf0;
+  border-radius: 10px;
+  padding: 16px;
+  flex-direction: column; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+.project-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  color: #002b5c;
+  background: #a9d6f5;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+.project-card h3 {
+  margin: 0 0 6px;
+  color: var(--main);
+  font-size: 17px;
+}
+.project-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ПОДВАЛ */
+footer {
+  background: var(--main);
+  color: var(--muted);
+  padding: 12px 30px;
+  font-size: 13px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+.footer-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+.footer-p {
+  margin: 0;
+}
+.footer-right button.footer-p {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.footer-copy {
+  margin: 0px;
+}
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+dialog {
+  max-width: min(500px, calc(100% - 48px));
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border: 0;
+  border-radius: 12px;
+  padding: 24px;
+  color: var(--text);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+.dialog-close {
+  display: flex;
+  justify-content: flex-end;
+}
+.dialog-close button {
+  padding: 6px 19px;
+  cursor: pointer;
+}
+.layout {
+  display: flex;
+  gap: 45px;
+  max-width: 1000px;
+  margin: 249x flex;
+  padding: 30 50px;
+  flex: 10;
+}
+
+.sidebar {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+}
+.sidebar h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bg);
+}
+.sidebar a {
+  color: var(--main);
+  text-decoration: none;
+}
+.sidebar a:hover {
+  color: var(--accent);
+  padding-left: 4px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;   
+  border-radius: 6px;
+  display: block;
+}
+
+section:not(:target) {
+  display: none;
+}
+body:not(:has(:target)) #about {
+  display: block;
+}
+#about:target {
+  scroll-margin-top: 25px;
+}
+main > section:target {
+  grid-column: 1 / -1;
+}
+
+footer a:focus-visible,
+footer button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  footer { flex-direction: column; align-items: flex-start; }
+  .layout { flex-direction: column; }
+  .sidebar { width: auto; }
+  main { grid-template-columns: 1fr; }  /* на телефоне одна колонка */
+}
