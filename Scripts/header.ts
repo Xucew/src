@@ -5,8 +5,8 @@ if (!(headerContainerElement instanceof HTMLElement)) {
 }
 
 const headerContainer = headerContainerElement;
-const siteRoot = new URL("../", import.meta.url);
-const headerUrl = new URL("../Pages/Header/header.html", import.meta.url);
+const siteRoot = new URL("../../", import.meta.url);
+const headerUrl = new URL("../../Pages/Header/header.html", import.meta.url);
 
 async function loadHeader(): Promise<void> {
   try {

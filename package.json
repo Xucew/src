@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run compile && vite",
+    "compile": "tsc",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "typescript": "^7.0.2",
-    "vite": "^8.3.8"
+    "vite": "^6.2.7"
   }
 }

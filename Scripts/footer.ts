@@ -5,7 +5,7 @@ if (!(footerContainerElement instanceof HTMLElement)) {
 }
 
 const footerContainer = footerContainerElement;
-const footerUrl = new URL("../Pages/Footer/footer.html", import.meta.url);
+const footerUrl = new URL("../../Pages/Footer/footer.html", import.meta.url);
 
 async function loadFooter(): Promise<void> {
   try {
