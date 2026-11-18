@@ -8,6 +8,10 @@
   width: 100%;
   margin-bottom: 12px;
   padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--main);
   text-align: right;
   font: inherit;
 }
@@ -20,6 +24,30 @@
 
 .calculator-buttons button {
   padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--text);
   font: inherit;
   cursor: pointer;
+}
+
+.calculator-buttons button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.calculator-buttons button.operator {
+  border-color: var(--main);
+  background: var(--main);
+  color: var(--surface);
+}
+
+.calculator-buttons button.operator:hover {
+  background: var(--main-hover);
+}
+
+.calculator-buttons button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
 }
