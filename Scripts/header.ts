@@ -1,3 +1,5 @@
+import headerTemplate from "../Pages/Header/header.html?raw";
+
 const headerContainerElement = document.getElementById("site-header");
 
 if (!(headerContainerElement instanceof HTMLElement)) {
@@ -5,39 +7,41 @@ if (!(headerContainerElement instanceof HTMLElement)) {
 }
 
 const headerContainer = headerContainerElement;
-const siteRoot = new URL("../", import.meta.url);
-const headerUrl = new URL("../Pages/Header/header.html", import.meta.url);
+headerContainer.innerHTML = headerTemplate;
 
-async function loadHeader(): Promise<void> {
-  try {
-    const response = await fetch(headerUrl);
-    if (!response.ok) {
-      throw new Error(`Header request failed with status ${response.status}.`);
+const siteRoot = new URL(".", window.location.href);
+const navigationLinks =
+  headerContainer.querySelectorAll<HTMLAnchorElement>("a[data-site-path]");
+
+function updateNavigation(): void {
+  const hash = window.location.hash;
+  const currentPage =
+    hash === "#/gallery"
+      ? "gallery"
+      : hash === "#/calculator"
+        ? "calculator"
+        : hash === "#skills"
+          ? "skills"
+          : hash === "#projects"
+            ? "projects"
+            : "home";
+
+  navigationLinks.forEach((link) => {
+    const path = link.dataset.sitePath;
+    const page = link.dataset.current;
+    if (!path || !page) {
+      throw new Error("A navigation link is missing its site path or page.");
     }
 
-    headerContainer.innerHTML = await response.text();
+    link.href = new URL(path, siteRoot).href;
 
-    headerContainer
-      .querySelectorAll<HTMLAnchorElement>("a[data-site-path]")
-      .forEach((link) => {
-        const path = link.dataset.sitePath;
-        if (!path) {
-          throw new Error("A navigation link is missing its site path.");
-        }
-
-        link.href = new URL(path, siteRoot).href;
-      });
-
-    headerContainer
-      .querySelectorAll<HTMLAnchorElement>("a[data-current]")
-      .forEach((link) => {
-        if (new URL(link.href).pathname === window.location.pathname) {
-          link.setAttribute("aria-current", "page");
-        }
-      });
-  } catch (error) {
-    console.error("Could not load the site header.", error);
-  }
+    if (page === currentPage) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
 }
 
-void loadHeader();
+updateNavigation();
+window.addEventListener("hashchange", updateNavigation);
