@@ -4,50 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meine Tage</title>
-  <!-- Verknüpfung mit der externen Stildatei -->
   <link rel="stylesheet" href="Styles/main.css">
   <link rel="stylesheet" href="Pages/Header/header.css">
+  <link rel="stylesheet" href="Pages/Calculator/calculator.css">
 </head>
 <body>
   <div id="site-header"></div>
-  <script type="module" src="Scripts/generated/header.js"></script>
+  <script type="module" src="Scripts/header.ts"></script>
 
-  <div class="hero">
-    <h1 class="hero-title">Meine ersten Tage</h1>
+  <div id="home-page">
+    <div class="hero">
+      <h1 class="hero-title">Meine ersten Tage</h1>
+    </div>
+
+    <div class="layout">
+      <main>
+        <section id="about">
+          <h2>Über mich</h2>
+          <p>Hallo zusammen! Ich heiße Vlad, bin 16 Jahre alt und lebe seit zwei Jahren in Deutschland. Zurzeit mache ich ein Praktikum bei MAXEDV. Dort lerne ich, Webseiten mit HTML und CSS zu erstellen und zu gestalten. Außerdem setze ich kleine praktische Projekte um und lerne, wie Webseiten aufgebaut werden. Ich interessiere mich für Programmierung und möchte meine Kenntnisse weiter ausbauen.</p>
+        </section>
+
+        <section id="skills" class="skills-tiles">
+          <h2>Was mache ich?</h2>
+          <ul>
+            <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#e34f26"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">H5</text></svg>HTML</span></li>
+            <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1572b6"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">C3</text></svg>CSS</span></li>
+            <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#f7df1e"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#000" font-family="Arial">JS</text></svg>Etwas JavaScript</span></li>
+            <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#5c2d91"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">VS</text></svg>Visual Studio</span></li>
+          </ul>
+        </section>
+
+        <section id="projects" class="projects">
+          <h2>Meine Projekte</h2>
+          <div class="project-grid">
+            <article class="project-card">
+              <span class="project-tag">HTML · CSS</span>
+              <h3>Erste Seite</h3>
+              <p>Diese Webseite mit HTML und CSS.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
   </div>
 
-  <div class="layout">
-
-  <main>
-    <section id="about">
-      <h2>Über mich</h2>
-      <p>Hallo zusammen! Ich heiße Vlad, bin 16 Jahre alt und lebe seit zwei Jahren in Deutschland. Zurzeit mache ich ein Praktikum bei MAXEDV. Dort lerne ich, Webseiten mit HTML und CSS zu erstellen und zu gestalten. Außerdem setze ich kleine praktische Projekte um und lerne, wie Webseiten aufgebaut werden. Ich interessiere mich für Programmierung und möchte meine Kenntnisse weiter ausbauen.</p>
-    </section>
-
-    <section id="skills" class="skills-tiles">
-      <h2>Was mache ich?</h2>
-      <ul>
-        <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#e34f26"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">H5</text></svg>HTML</span></li>
-        <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1572b6"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">C3</text></svg>CSS</span></li>
-        <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#f7df1e"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#000" font-family="Arial">JS</text></svg>Etwas JavaScript</span></li>
-        <li><span class="tech"><svg class="ico" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#5c2d91"/><text x="12" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#fff" font-family="Arial">VS</text></svg>Visual Studio</span></li>
-      </ul>
-    </section>
-
-    <section id="projects" class="projects">
-      <h2>Meine Projekte</h2>
-      <div class="project-grid">
-        <article class="project-card">
-          <span class="project-tag">HTML · CSS</span>
-          <h3>Erste Seite</h3>
-          <p>Diese Webseite mit HTML und CSS.</p>
-        </article>
-      </div>
-    </section>
-  </main>
+  <div id="route-page" class="layout" hidden>
+    <main id="route-content"></main>
   </div>
 
   <div id="site-footer"></div>
-  <script type="module" src="Scripts/generated/footer.js"></script>
+  <script type="module" src="Scripts/router.ts"></script>
+  <script type="module" src="Scripts/footer.ts"></script>
 </body>
 </html>

@@ -260,6 +260,11 @@ dialog::backdrop {
   display: block;
 }
 
+#route-content > section {
+  display: block;
+  grid-column: 1 / -1;
+}
+
 section:not(:target) {
   display: none;
 }
